@@ -25,6 +25,8 @@ class Submission():
         for part_id, _ in enumerate(self.__srcs, 1):
             parts[str(part_id)] = {'output': self.__output(part_id)}
 
+        print('Ok')
+
         result, response = self.request(parts)
         response = loads(response)
         try:
@@ -65,7 +67,7 @@ class Submission():
             pass
 
         if self.__login is not None and self.__password is not None:
-            reenter = input('Use token from last successful submission (%s)? (Y/n): ' % self.__login)
+            reenter = input('Use token from last successful submission? (Y/n):')
 
             if reenter == '' or reenter[0] == 'Y' or reenter[0] == 'y':
                 return
